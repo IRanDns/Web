@@ -77,28 +77,11 @@ DNS Radar
 DNS CloudFlare
 DNS Google
     </pre>
-<a href="https://github.com/IRanDns/IRanDns.Desktop/releases/download/EXE/IRanDns.exe">    <button id="downloadBtn">💾 دانلود فایل IRanDns</button></a>
+<a href="https://github.com/IRanDns/IRanDns.Desktop/releases/tag/EXE">    <button id="downloadBtn">💾 دانلود فایل IRanDns</button></a>
 
 
     <footer>طراحی و توسعه توسط شما 💜</footer>
   </div>
 
-  <script>
-    // ===== JS داخلی =====
-    document.getElementById('downloadBtn').addEventListener('click', function() {
-      const content = "DNS1=1.1.1.1\nDNS2=1.0.0.1";
-      const blob = new Blob([content], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'dns-config.txt';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-
-      // تغییر موقت متن 
-    });
-  </script>
 </body>
 </html>
