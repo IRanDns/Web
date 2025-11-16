@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRanDns</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="sa.jfif" type="image/x-icon">
+  
+  <style>
+    /* ===== CSS داخلی ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+    #app {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      width: 400px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    #app:hover { transform: scale(1.03); }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+    }
+    p { font-size: 14px; margin-bottom: 25px; color: #e0e0e0; }
+    .dns-list {
+      text-align: left;
+      background: rgba(255,255,255,0.2);
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .dns-list p { margin: 5px 0; color: #fff; }
+    button {
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      border: none;
+      padding: 14px 25px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+    }
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+    button:active { transform: scale(0.95); }
+    footer { margin-top: 15px; font-size: 12px; color: #ddd; }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>🌐 IRanDns</h1>
+
+    <pre class="dns-list">
+DNS Radar
+DNS CloudFlare
+DNS Google
+    </pre>
+<a href="https://github.com/IRanDns/IRanDns.Desktop/releases/download/EXE/IRanDns.exe">    <button id="downloadBtn">💾 دانلود فایل IRanDns</button></a>
+
+
+    <footer>طراحی و توسعه توسط شما 💜</footer>
+  </div>
+
+  <script>
+    // ===== JS داخلی =====
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+      const content = "DNS1=1.1.1.1\nDNS2=1.0.0.1";
+      const blob = new Blob([content], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'dns-config.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      // تغییر موقت متن 
+    });
+  </script>
+</body>
+</html>
